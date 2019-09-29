@@ -1,7 +1,8 @@
-package com.nightowldevelopers.onetapxpboost
+package com.nightowldevelopers.levelup
 
 
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
@@ -51,6 +52,8 @@ class GoogleSignInActivity : BaseActivity(), PurchasesUpdatedListener, View.OnCl
         products.visibility = View.GONE
         leaderboard.visibility = View.GONE
         achievement.visibility = View.GONE
+
+
 
         // Button listeners
         signInButton.setOnClickListener(this)
@@ -137,7 +140,7 @@ class GoogleSignInActivity : BaseActivity(), PurchasesUpdatedListener, View.OnCl
                     )
                 )
                 Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                    .unlock(getString(R.string.achievement_rate_on_playstore))
+                    .unlock(getString(R.string.achievement_rate_us_achievemenet))
                 Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
                     .submitScore(getString(R.string.leaderboard_leaderboard), 150000)
             } catch (anfe: ActivityNotFoundException) {
@@ -148,7 +151,7 @@ class GoogleSignInActivity : BaseActivity(), PurchasesUpdatedListener, View.OnCl
                     )
                 )
                 Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                    .unlock(getString(R.string.achievement_rate_on_playstore))
+                    .unlock(getString(R.string.achievement_rate_us_achievemenet))
                 Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
                     .submitScore(getString(R.string.leaderboard_leaderboard), 150000)
             }
@@ -165,10 +168,7 @@ class GoogleSignInActivity : BaseActivity(), PurchasesUpdatedListener, View.OnCl
                         Uri.parse("market://dev?id=$developerurl")
                     )
                 )
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                    .unlock(getString(R.string.achievement_more_xp))
-                Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                    .submitScore(getString(R.string.leaderboard_leaderboard), 80000)
+
             } catch (anfe: ActivityNotFoundException) {
                 startActivity(
                     Intent(
@@ -176,10 +176,7 @@ class GoogleSignInActivity : BaseActivity(), PurchasesUpdatedListener, View.OnCl
                         Uri.parse("https://play.google.com/store/apps/dev?id=$developerurl")
                     )
                 )
-                Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                    .unlock(getString(R.string.achievement_more_xp))
-                Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                    .submitScore(getString(R.string.leaderboard_leaderboard), 80000)
+
             }
 
         }
@@ -292,6 +289,7 @@ class GoogleSignInActivity : BaseActivity(), PurchasesUpdatedListener, View.OnCl
             products.visibility = View.GONE
             leaderboard.visibility = View.GONE
             achievement.visibility = View.GONE
+
         }
     }
 
@@ -327,7 +325,7 @@ class GoogleSignInActivity : BaseActivity(), PurchasesUpdatedListener, View.OnCl
             status.setText(R.string.signed_out)
             detail.text = null
 
-            homeLogo.visibility = View.VISIBLE
+            homeLogo.visibility = View.GONE
             signInButton.visibility = View.VISIBLE
             signOutAndDisconnect.visibility = View.GONE
             textView4.visibility = View.GONE
@@ -336,6 +334,9 @@ class GoogleSignInActivity : BaseActivity(), PurchasesUpdatedListener, View.OnCl
             rateApp.visibility = View.GONE
             textViewRate.visibility = View.GONE
             textViewIG.visibility = View.GONE
+            leaderboard.visibility=View.GONE
+            achievement.visibility=View.GONE
+            products.visibility=View.GONE
 
         }
     }
@@ -455,25 +456,30 @@ class GoogleSignInActivity : BaseActivity(), PurchasesUpdatedListener, View.OnCl
             Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
                 .submitScore(getString(R.string.leaderboard_leaderboard), 40000)
             Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                .unlock(getString(R.string.achievement_level_5__rate_app_and_win_additional_xp))
+                .unlock(getString(R.string.achievement_level_5))
             Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
                 .submitScore(getString(R.string.leaderboard_leaderboard), 50000)
             Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                .unlock(getString(R.string.achievement_level_6__follow_us_on_instagram_and_unlock_level_7))
+                .unlock(getString(R.string.achievement_level_6))
             Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
                 .submitScore(getString(R.string.leaderboard_leaderboard), 60000)
             Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
+                .unlock(getString(R.string.achievement_level_7))
+            Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
+                .submitScore(getString(R.string.leaderboard_leaderboard), 70000)
+            Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
+                .unlock(getString(R.string.achievement_level_8))
+            Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
+                .submitScore(getString(R.string.leaderboard_leaderboard), 80000)
+
+            Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
+                .unlock(getString(R.string.achievement_level_9))
+            Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
+                .submitScore(getString(R.string.leaderboard_leaderboard), 90000)
+            Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
                 .unlock(getString(R.string.achievement_level_10))
             Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                .submitScore(getString(R.string.leaderboard_leaderboard), 100000)
-            Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                .unlock(getString(R.string.achievement_level_11))
-            Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                .submitScore(getString(R.string.leaderboard_leaderboard), 110000)
-            Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                .unlock(getString(R.string.achievement_level_12))
-            Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
-                .submitScore(getString(R.string.leaderboard_leaderboard), 120000)
+                .submitScore(getString(R.string.leaderboard_leaderboard), 10000)
             Games.getAchievementsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)
                 .unlock(getString(R.string.achievement_level_13))
             Games.getLeaderboardsClient(this, GoogleSignIn.getLastSignedInAccount(this)!!)

@@ -1,8 +1,9 @@
-package com.nightowldevelopers.onetapxpboost
+package com.nightowldevelopers.levelup
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import android.widget.Toast.makeText
 import androidx.appcompat.app.AppCompatActivity
 import com.android.billingclient.api.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -72,7 +73,7 @@ class MainActivity : AppCompatActivity(), PurchasesUpdatedListener {
 
     override fun onPurchasesUpdated(responseCode: Int, purchases: MutableList<Purchase>?) {
         println("onPurchasesUpdated: $responseCode")
-        Toast.makeText(
+        makeText(
             this, "onPurchasesUpdated:$responseCode", Toast.LENGTH_LONG
         )
         allowMultiplePurchases(purchases)
@@ -84,7 +85,7 @@ class MainActivity : AppCompatActivity(), PurchasesUpdatedListener {
             billingClient.consumeAsync(purchase.purchaseToken) { responseCode, purchaseToken ->
                 if (responseCode == BillingClient.BillingResponse.OK && purchaseToken != null) {
                     println("AllowMultiplePurchases success, responseCode: $responseCode")
-                    Toast.makeText(
+                    makeText(
                         this, "MultiplePurchase:$responseCode", Toast.LENGTH_LONG
                     )
                 } else {
