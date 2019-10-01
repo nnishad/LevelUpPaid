@@ -153,8 +153,8 @@
     <Button
             android:id="@+id/rateApp"
             style="@style/MainScreenButton"
-            android:layout_width="102dp"
-            android:layout_height="71dp"
+            android:layout_width="105dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="44dp"
             android:layout_marginRight="44dp" android:layout_marginBottom="60dp"
             android:background="@drawable/rateus" app:layout_constraintBottom_toTopOf="@+id/signOutAndDisconnect1"
